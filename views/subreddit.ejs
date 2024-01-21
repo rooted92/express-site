@@ -1,0 +1,29 @@
+<%- include('partials/head') %>
+
+    <%- include('partials/navbar') %>
+    <div class="container mt-5">
+        <h1>You are on the <%= name.toUpperCase(); %> subreddit.</h1>
+        <h2>
+            <%= description %>
+        </h2>
+        <p>
+            <%= subscribers %>
+        </p>
+        <hr>
+
+        <% for(let post of posts) { %>
+            <article>
+                <p class="text-center">
+                    <%= post.title %> - <b>
+                            <%= post.author %>
+                        </b>
+                </p>
+                <% if(post.img) { %>
+                    <img class="img-fluid" src="<%= post.img %>" alt="">
+                    <% } %>
+            </article>
+            <hr>
+            <% } %>
+    </div>
+
+<%- include('partials/footer') %>
